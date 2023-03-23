@@ -57,4 +57,10 @@
         android:layout_marginTop="24dp"
         android:text="@string/cheat_button"></Button>
 
+    <Button
+        android:id="@+id/result_button"
+        android:layout_width="wrap_content"
+        android:layout_height ="wrap_content"
+        android:text = "@string/result_button"/>
+
 </LinearLayout>

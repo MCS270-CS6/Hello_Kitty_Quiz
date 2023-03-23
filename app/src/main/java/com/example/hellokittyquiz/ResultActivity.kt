@@ -19,4 +19,12 @@ class ResultActivity : AppCompatActivity() {
         setContentView(binding.root)
 
     }
+
+    companion object{
+        fun newIntent(packageContext: Context): Intent {
+            return Intent(packageContext, ResultActivity::class.java).apply{
+
+            }
+        }
+    }
 }

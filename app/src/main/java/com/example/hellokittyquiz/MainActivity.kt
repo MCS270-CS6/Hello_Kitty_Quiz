@@ -25,14 +25,19 @@ class MainActivity : AppCompatActivity() {
     private val quizViewModel: QuizViewModel by viewModels()
     private val cheatLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
-    ){
-        result ->
+    ) { result ->
         //handle whatever the result is
         if (result.resultCode == Activity.RESULT_OK) {
             quizViewModel.isCheater =
                 result.data?.getBooleanExtra(EXTRA_ANSWER_IS_SHOWN, false) ?: false
         }
     }
+    private val resultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,6 +90,10 @@ class MainActivity : AppCompatActivity() {
         // this will get you the id for the current question in the question bank
         updateQuestion()
 
+        binding.resultButton.setOnClickListener{
+            val intent = ResultActivity.newIntent(this@MainActivity)
+            resultLauncher.launch(intent)
+        }
     }
 
     override fun onStart() {
@@ -150,4 +159,17 @@ class MainActivity : AppCompatActivity() {
         }
         //Snackbar.make(view, messageResId, Snackbar.LENGTH_SHORT).show()
     }
+
+
+
+    /* private fun checkPercent(){
+        var percent_correct = 0
+        if (quizViewModel.currentIndex == correct + incorrect){
+            percent_correct = (correct * 100) / quizViewModel.questionBankSize
+            Toast.makeText(this,
+                this.getString(R.string.score_toast, percent_correct),
+                Toast.LENGTH_LONG).show()
+        }
+    }
+     */
 }

@@ -14,7 +14,7 @@
     <string name="question5">Hello Kitty lives in London</string>
     <string name="show_answer_button"> Show Me The Answer</string>
     <string name="cheat_button"> THIS IS CHEATING BUTTON!</string>
-    <string name="return_button"> Return to Quiz</string>
+    <string name="result_button">Show results</string>
 
 
 </resources>
