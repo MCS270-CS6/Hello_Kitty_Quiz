@@ -18,6 +18,8 @@ class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel(
     )
     public var currentIndex = 0
     public var currentQuestionAnswered = questionBank[currentIndex].answered
+    public var score = 0
+    public var wrong = 0
 
     val currentQuestionAnswer: Boolean
     get() = questionBank[currentIndex].answer

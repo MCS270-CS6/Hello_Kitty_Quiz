@@ -16,7 +16,6 @@ import androidx.activity.viewModels
 private const val TAG = "MainActivity";
 
 //private var currentIndex = 0
-private var score = 0
 //private lateinit var true_button:Button
 //private lateinit var false_button: Button
 
@@ -144,14 +143,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (userAnswer == correctAnswer) {
-            score++
+            quizViewModel.score++
         }
+        else quizViewModel.wrong++
 
         quizViewModel.setAnswered()
         binding.trueButton.isEnabled = false
         binding.falseButton.isEnabled = false
         if (quizViewModel.currentIndex == 4) {
-            val scoreText = "Percentage Correct: " + (score / 5) * 100 + "%"
+            val scoreText = "Percentage Correct: " + (quizViewModel.score / 5) * 100 + "%"
             Toast.makeText(this, scoreText, Toast.LENGTH_SHORT).show()
         }
         else {

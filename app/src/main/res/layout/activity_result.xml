@@ -8,15 +8,20 @@
     tools:context=".ResultActivity">
 
     <TextView
-        android:id="@+id/answer_text"
+        android:id="@+id/correct_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"/>
-
-
-
-
-
+    <TextView
+        android:id="@+id/incorrect_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="24dp"/>
+    <Button
+        android:id="@+id/return_button"
+        android:layout_width="wrap_content"
+        android:layout_height ="wrap_content"
+        android:text = "@string/show_answer_button"/>
 
 
 </LinearLayout>

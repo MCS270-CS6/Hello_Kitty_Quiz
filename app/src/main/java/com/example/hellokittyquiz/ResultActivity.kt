@@ -11,13 +11,18 @@ import com.example.hellokittyquiz.databinding.ActivityResultBinding
 
 class ResultActivity : AppCompatActivity() {
     private lateinit var binding: ActivityResultBinding
-    private val resultViewModel: ResultViewModel by viewModels()
+    private val quizViewModel: QuizViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val correctText = R.string.correctResult_string + quizViewModel.score
+        val incorrectText = R.string.incorrectResult_string + quizViewModel.wrong
+
+        binding.correctText.setText(correctText)
+        binding.incorrectText.setText(incorrectText)
     }
 
     companion object{
