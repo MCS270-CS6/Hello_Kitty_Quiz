@@ -18,7 +18,9 @@ class ResultActivity : AppCompatActivity() {
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val correctText = R.string.correctResult_string + quizViewModel.score
+        var correct_score = quizViewModel.score
+        val correct_score10 = Integer.toString(correct_score)
+        val correctText= StringBuilder().append(getString(R.string.correctResult_string)).append(" ").append(correct_score10).toString()
         val incorrectText = R.string.incorrectResult_string + quizViewModel.wrong
 
         binding.correctText.setText(correctText)
