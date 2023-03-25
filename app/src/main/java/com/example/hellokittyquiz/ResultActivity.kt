@@ -20,8 +20,10 @@ class ResultActivity : AppCompatActivity() {
 
         var correct_score = quizViewModel.score
         val correct_score10 = Integer.toString(correct_score)
+        val incorrect_score = quizViewModel.wrong
+        val incorrect_score10 = Integer.toString(incorrect_score)
         val correctText= StringBuilder().append(getString(R.string.correctResult_string)).append(" ").append(correct_score10).toString()
-        val incorrectText = R.string.incorrectResult_string + quizViewModel.wrong
+        val incorrectText = StringBuilder().append(getString(R.string.correctResult_string)).append(" ").append(incorrect_score10).toString()
 
         binding.correctText.setText(correctText)
         binding.incorrectText.setText(incorrectText)
