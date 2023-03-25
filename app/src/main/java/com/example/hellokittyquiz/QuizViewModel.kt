@@ -10,16 +10,17 @@ class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel(
     init {
         Log.d(TAG, "ViewModel instance is created")
     }
-    private val questionBank = listOf(Question(R.string.question1, true, false),
+    public val questionBank = listOf(Question(R.string.question1, true, false),
         Question(R.string.question2, false, false),
         Question(R.string.question3, false, false),
         Question(R.string.question4, false, false),
-        Question(R.string.question5, true, false)
+        Question(R.string.question5, true, false),
+        Question(R.string.question6, true, false)
     )
     public var currentIndex = 0
     public var currentQuestionAnswered = questionBank[currentIndex].answered
-    public var score = 0
-    public var wrong = 0
+    public var correct = 0
+    public var incorrect = 0
 
     val currentQuestionAnswer: Boolean
     get() = questionBank[currentIndex].answer
@@ -37,7 +38,12 @@ class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel(
     }
 
     fun moveToPrevious() {
-        currentIndex = (currentIndex-1)%questionBank.size
+        if (currentIndex > 1){
+            currentIndex = (currentIndex-1)%questionBank.size
+        }
+        else{
+            currentIndex = questionBank.size - 1
+        }
         currentQuestionAnswered = questionBank[currentIndex].answered
     }
 

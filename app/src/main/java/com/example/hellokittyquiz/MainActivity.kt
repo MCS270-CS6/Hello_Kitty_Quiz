@@ -31,12 +31,14 @@ class MainActivity : AppCompatActivity() {
                 result.data?.getBooleanExtra(EXTRA_ANSWER_IS_SHOWN, false) ?: false
         }
     }
-    private val resultLauncher = registerForActivityResult(
+    private val quoteLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
 
     }
 
+    private var correct = 0
+    private var incorrect = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,9 +91,9 @@ class MainActivity : AppCompatActivity() {
         // this will get you the id for the current question in the question bank
         updateQuestion()
 
-        binding.resultButton.setOnClickListener{
-            val intent = ResultActivity.newIntent(this@MainActivity)
-            resultLauncher.launch(intent)
+        binding.quoteButton.setOnClickListener{
+            val intent = QuoteActivity.newIntent(this@MainActivity)
+            quoteLauncher.launch(intent)
         }
     }
 
@@ -143,15 +145,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (userAnswer == correctAnswer) {
-            quizViewModel.score++
+            correct += 1
+            quizViewModel.correct += 1
         }
-        else quizViewModel.wrong++
+        else {
+            incorrect += 1
+            quizViewModel.incorrect += 1
+        }
 
         quizViewModel.setAnswered()
         binding.trueButton.isEnabled = false
         binding.falseButton.isEnabled = false
-        if (quizViewModel.currentIndex == 4) {
-            val scoreText = "Percentage Correct: " + (quizViewModel.score / 5) * 100 + "%"
+
+        var percent_score = 0
+        if (quizViewModel.questionBank.size == correct + incorrect) {
+            val scoreText = "Score: " + ((correct * 100)/quizViewModel.questionBank.size) + "%"
             Toast.makeText(this, scoreText, Toast.LENGTH_SHORT).show()
         }
         else {

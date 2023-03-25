@@ -8,16 +8,21 @@
     <string name="cheater_string"> CHEATER!</string>
     <string name="next_button"> NEXT</string>
     <string name="previous_button"> PREV</string>
-    <string name="result_button"> RESULT</string>
+    <string name="quote_button"> QUOTE</string>
     <string name="question2">Hello Kitty is not an UNICEF ambassador</string>
     <string name="question3">Hello Kitty Twin sister is named Nini</string>
     <string name="question4">Hello Kitty full name is Kitty Black</string>
     <string name="question5">Hello Kitty lives in London</string>
+    <string name="question6">Prof Louis play as Moira in Overwatch</string>
     <string name="show_answer_button"> Show Me The Answer</string>
     <string name="cheat_button"> THIS IS CHEATING BUTTON!</string>
     <string name="return_button"> Return to Quiz</string>
-    <string name="correctResult_string">CORRECT: </string>
-    <string name="incorrectResult_string">INCORRECT: </string>
+    <string name="quote1">You can do it</string>
+    <string name="quote2">Do not give up</string>
+    <string name="quote3">Treat yourself</string>
+    <string name="quote4">Austin Legatt is Awesome!</string>
+    <string name="quote5">Louis needs to bring donuts to class</string>
+
 
 
 </resources>

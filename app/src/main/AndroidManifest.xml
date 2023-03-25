@@ -15,7 +15,7 @@
             android:name=".CheatActivity"
             android:exported="false" />
         <activity
-            android:name="ResultActivity"
+            android:name=".QuoteActivity"
             android:exported='false' />
         <activity
             android:name=".MainActivity"
